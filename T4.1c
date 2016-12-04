@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main(int argc, char const *argv[])
+{
+    int n,m;
+    int primeNum = 0;
+    int sum = 0;
+    
+    scanf("%d %d",&n,&m);
+    
+    //数字遍历
+    for (int i = 2 ; primeNum < m ;i++) {
+        int isPrime = 1;
+        
+        //判断是否素数
+        for (int j = 2; j < i; j++) {
+            if (i % j == 0) {
+                isPrime = 0;
+                break;
+            }
+        }
+        
+        //是素数做加法
+        if (isPrime) {
+            primeNum++;
+            if(primeNum >= n && primeNum <= m)
+            {
+                sum += i;
+            }
+        }
+    }
+    
+    printf("%d" , sum);
+
+    return 0;
+}
